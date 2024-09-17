@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+    <title>Consumir API pública con Método Fetch</title>
+</head>
+<body>
+    <button id="mostrar">Muestra información de la API Random User</button>
+    <div id="contenido"></div>
+
+    <script>
+        document.getElementById("mostrar").addEventListener("click", mostrarDatosApi, true); // funcion
+        let contenido = document.querySelector("#contenido");
+        function mostrarDatosApi() {
+            fetch("https://randomuser.me/api/")
+            .then (res => res.json())
+            .then (data => {
+                console.log(data.results[0]);
+                contenido.innerHTML=`
+                <img src="${data.results[0].picture.large}" width="150px"/>
+                <p>Apellido: ${data.results[0].name.last}</p>
+                <p>Nombre: ${data.results[0].name.first}</p>
+                <p>Genero: ${data.results[0].gender}</p>
+                <p>Fecha y hora de nacimiento: ${data.results[0].dob.date}</p>
+                <p>Edad: ${data.results[0].dob.age}</p>
+                `;
+
+            })
+        }
+    </script>
+</body>
+</html>
