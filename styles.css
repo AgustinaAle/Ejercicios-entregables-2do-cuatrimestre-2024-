@@ -1,9 +1,16 @@
 .mostrar{
-    color: red;
+    color: purple;
     padding-right: 5px;
 }
 
-.contenido{
-    color:blueviolet;
-    padding-right: 5px;
+.contenedor{
+    box-sizing: border-box;
+    width: 100%;
+    margin: 20px auto;
+    padding-left: 100px;
+    padding-right: 100px;
+    padding-bottom: 10px;
+    border: 30px #141313;
+    background-color: violet;
+    color:green
 }
